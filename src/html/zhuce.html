@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>注册</title>
+		<link rel="stylesheet" type="text/css" href="../css/zhuce.css"/>
+		<script src="../js/jquery-1.12.0.js"></script>
+		<script>
+			$(function(){
+				//第一部分
+				$('<p/>').attr('id','p1').html("<img src='../img/second1.jpg'><span id='sp1'>欢迎注册</span>").appendTo('#first');
+			
+				//第二部分
+				$("<ul/>").attr('id','u2').appendTo('#second');
+				$('<li/>').attr('id','li1').html('<img src="../img/zhce1.png">').appendTo("#u2");
+				$('<li/>').attr('id','li2').html('<ul id="u3"></ul>').appendTo("#u2");
+				var arr1 = ['li3','li4','li5','li6','li7','li8','li9','li10']
+				for(i=0;i<8;i++){
+					$('<li>').addClass(arr1[i]).appendTo('#u3');
+				}
+				$('#u3 .li3').html("<p id='p3'><span id='sp3'>用户手机：</span><input id='put3' type='text'><img src='../img/zhce2.png'><span id='sp31'>请填写您的手机号码</span></p>");
+				$('#u3 .li4').html("<p id='p4'><span id='sp4'>信验证码：</span><input id='put4' type='text'><button id='btn4'>获取验证码</button><span id='sp41'>请填写收到的验证码</span></p>");
+				$('#u3 .li5').html("<p id='p5'><span id='sp5'>电子邮箱：</span><input id='put5' type='text'><img src='../img/zhce.png'><span id='sp51'>邮件发送</span></p>");
+				$('#u3 .li6').html("<p id='p6'><span id='sp6'>设置密码：</span><input id='put6' type='text'><img src='../img/delu3.png'><span id='sp61'>6--20位，区分大小写</span></p>");
+				$('#u3 .li7').html("<p id='p7'><span id='sp7'>确认密码：</span><input id='put7' type='text'><img src='../img/delu3.png'><span id='sp71'>请再输入上面写的代码一遍</span></p>");
+				$('#u3 .li8').html("<p id='p8'><span id='sp8'>校验证码：</span><input id='put8' type='text'><span id='sp81'></span><button id='btn8'>更换</button></p>");
+				$('#u3 .li9').html("<p id='p9'><input id='put9' type='radio'>我已阅读并同意《风尚用户注册协议》</p>");
+				$('#u3 .li10').html("<button id='btn10'>立即注册</button>");
+				
+				
+				
+				//效果图
+				
+				$('#put3').focus(function () { 
+					$('#put3').val(''); 
+				}) 
+				$('#put4').focus(function () { 
+					$('#put4').val(''); 
+				})
+				$('#put5').focus(function () { 
+					$('#put5').val(''); 
+				}) 
+				$('#put6').focus(function () { 
+					$('#put6').val(''); 
+				})
+				$('#put7').focus(function () { 
+					$('#put7').val(''); 
+				})
+				$('#put8').focus(function () { 
+					$('#put8').val(''); 
+				})
+				var s;
+				$('#put3').on('blur',function () { 					
+					var str=this.value;
+					var reg = (/^1[35678]\d{9}$/);
+					s=reg.test(str);
+					if (s==false)
+					{ 
+						$('#put3').val('请输入手机号').css('color','red'); 
+					} 
+				}) 
+				var s1;
+				$('#put4').on('blur',function () { 
+					var str=this.value;
+					var reg=/^.{6}$/;
+					s1=reg.test(str);
+					if(s1==false){						
+						$('#put4').val('验证码不对').css('color','red');
+					}
+				}) 
+				var s2;
+				$('#put5').on('blur',function () { 
+					var str=this.value;
+					var reg=/^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+					s2=reg.test(str);
+					if(s2==false){						
+						$('#put5').val('再试试看').css('color','red');
+					}
+				})
+				var s3;
+				$('#put6').on('blur',function () { 
+					var str=this.value;
+					var reg=/\d{6}/;
+					s3=reg.test(str);
+					if(s3==false){
+						
+						$('#put6').val('密码不正确').css('color','red');
+					}
+					$('#put7').on('blur',function () { 
+					var str1=this.value;
+					
+					
+					if(str1!=str){						
+						$('#put7').val('密码不对应').css('color','red');
+					}
+				})
+				})
+				var s4;
+				$('#put8').on('blur',function () { 
+					var str=this.value;
+					var reg=/\d{6}/;
+					s4=reg.test(str);
+					if(s4==false){						
+						$('#put8').val('验证码不对').css('color','red');
+					}
+				})
+				
+				
+				$('#btn10').click(function () {
+					console.log(s);
+					console.log(s1);
+					if (s && s1 && s2 && s3 && s4) 
+					{ alert('注册成功！'); } 
+					else { alert('注册失败！'); } 
+				});	
+
+				//end3
+				$('<h4/>').html("<span>触屏版</span><em>电脑版</em>").appendTo("#end3");
+				$('<p/>').html("健康减肥减肥课附近开了房间 附近空地方").appendTo("#end3");
+				$('<p/>').html("健康减肥减地方个风格的风格 发给谁发的gfgfgsg").appendTo("#end3");
+				$('<p/>').html("健康减肥减肥课附近开了房间 附近空地方个风格的风格 发给谁公司发给各个方法").appendTo("#end3");
+				$('<p/>').html("健康减地方个风格的风发谁发的").appendTo("#end3");
+				
+				
+			});
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<div id="first"></div>
+		<div id="second"></div>
+		<div id="san"></div>
+		<div style="clear: both;"></div>
+		<div id="end3"></div>
+		
+	</body>
+</html>

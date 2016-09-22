@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录</title>
+		<link rel="stylesheet" type="text/css" href="../css/denglu.css"/>
+		<script src="../js/jquery-1.12.0.js"></script>
+		<script>
+			$(function(){
+				//第一部分
+				$('<p/>').attr('id','p1').html("<img src='../img/second1.jpg'><span id='sp1'>欢迎登录</span>").appendTo('#first');
+			
+				//第二部分
+				$("<ul/>").attr('id','u2').appendTo('#second');
+				$('<li/>').attr('id','li1').html('<img src="../img/delu1.png">').appendTo("#u2");
+				$('<li/>').attr('id','li2').html('<ul id="u3"></ul>').appendTo("#u2");
+				var arr1 = ['li3','li4','li5','li6','li7','li8']
+				for(i=0;i<6;i++){
+					$('<li>').addClass(arr1[i]).appendTo('#u3');
+				}
+				$('#u3 .li3').html("<p id='p3'>手机或邮箱或会员编号</p><input id='put3' type='text'><img src='../img/delu2.png'>");
+				$('#u3 .li4').html("<p id='p4'>密码</p><input id='put4' type='text'><img src='../img/delu3.png'>");
+				$('#u3 .li5').html("<p id='p5'>验证码</p><input id='put5' type='text'><p id='p52'>获取区</p><button id='btn5'>更换</button>");
+				$('#u3 .li6').html("<p id='p6'><input id='put6' type='radio'><span id='sp61'>自动登录</span><span id='sp62'>电话订购会员登录/免费注册</span></p>");
+				$('#u3 .li7').html("<button id='btn7'>登录</button>");
+				$('#u3 .li8').html("<p id='p8'>使用合作网站账号登录：</p><button id='btn8'><img src='../img/delu4.png'></button>");
+//				var oSpan = null;
+//				$('#put3').on('input',function(){
+//					//alert("进来了");
+//					oSpan = $('#show')
+//					
+//					var str = $(this).val();
+//					var reg = /^1[35678]\d{9}$/;
+//					var s = reg.test(str);
+//					if(s ==false){
+//						$('#put3').val("请输入正确的号码");
+//					}
+//					//oSpan.html(String(reg.test(str)))
+//				});
+
+				$('#put3').focus(function () { 
+					$('#put3').val(''); 
+				}) 
+				$('#put4').focus(function () { 
+					$('#put4').val(''); 
+				})
+				$('#put5').focus(function () { 
+					$('#put5').val(''); 
+				}) 
+				var s;
+				$('#put3').on('blur',function () { 					
+					var str=this.value;
+					var reg = (/(^1[35678]\d{9}$)|(^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$)/);
+					s=reg.test(str);
+					if (s==false)
+					{ 
+						$('#put3').val('请输入手机或邮箱').css('color','red'); 
+					} 
+				}) 
+				var s1;
+				$('#put4').on('blur',function () { 
+					var str=this.value;
+					var reg=/^.{6,20}$/;
+					s1=reg.test(str);
+					if(s1==false){						
+						$('#put4').val('密码不合法').css('color','red');
+					}
+				}) 
+				var s2;
+				$('#put5').on('blur',function () { 
+					var str=this.value;
+					var reg=/\d{1,4}/;
+					s2=reg.test(str);
+					if(s2==false){						
+						$('#put5').val('再试试看').css('color','red');
+					}
+				})
+				$('#btn7').click(function () {
+					console.log(s);
+					console.log(s1);
+					if (s && s1 && s2) 
+					{ alert('登陆成功！'); } 
+					else { alert('登陆失败！'); } 
+				});	
+
+
+
+
+
+
+			
+				
+				//end3
+				$('<h4/>').html("<span>触屏版</span><em>电脑版</em>").appendTo("#end3");
+				$('<p/>').html("健康减肥减肥课附近开了房间 附近空地方").appendTo("#end3");
+				$('<p/>').html("健康减肥减地方个风格的风格 发给谁发的gfgfgsg").appendTo("#end3");
+				$('<p/>').html("健康减肥减肥课附近开了房间 附近空地方个风格的风格 发给谁公司发给各个方法").appendTo("#end3");
+				$('<p/>').html("健康减地方个风格的风发谁发的").appendTo("#end3");
+				
+				
+			});
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<div id="first"></div>
+		<div id="second"></div>
+		<div id="san"></div>
+		<div style="clear: both;"></div>
+		<div id="end3"></div>
+		
+	</body>
+</html>

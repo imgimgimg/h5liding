@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/project.css"/>
+		<script src="../js/jquery-1.12.0.js"></script>
+		
+		
+		<script>
+		jQuery(function(){
+			//头部
+			var arr1 = ['登录','免费注册','送50元','电话订购会员登录','送50元','我的风尚',];
+			$('<ul/>').addClass('yi').appendTo('#first')
+
+			$.each(arr1,function(i,cal){
+				$('<li/>').appendTo('.yi').html(cal)
+			})
+			$('.yi').find('li').eq(2).addClass('red');			
+			$('.yi').find('li').eq(4).addClass('red');
+			
+			//第二部分
+			var arr2 = ['er1','er2','er3','er4'];
+			var i = 0 ;
+			$('<ul>').addClass('er').appendTo('#second');
+			$.each(arr2,function(dex,cal){
+				
+				$('<li/>').addClass(cal).appendTo('.er');
+			})
+			//第三部分
+			$('<div/>').attr('id','san1').html("<img src='../img/second1.jpg'>").appendTo('#third');
+			$('<div/>').attr('id','san2').html("<img src='../img/second2.jpg'>").appendTo('#third');
+			$('<input/>').attr({'id':'btn1','type':'text','placeholder':'请输入商品关键词或者货号',}).appendTo('#third');
+			$('<button/>').attr('id','btn2').html('搜索').insertAfter('#btn1');
+			$('<ul/>').attr('id','ul2').appendTo('#third');
+			for (var i=0;i<3;i++) {
+				$('<li/>').appendTo('#ul2');
+			}
+			$('#ul2').find('li').eq(0).html('<img src="../img/second3.png">');
+			$('#ul2').find('li').eq(1).html('网站订购<br><span>全场免运费</span>').addClass('rd');
+			$('#ul2').find('li').eq(2).html('货到付款<br><span>支付宝</span>');
+			$('<button/>').attr('id','btn3').html("<img src='../img/second4.png'>去购物车结算<img src='../img/second5.png'>").appendTo('#third');
+			
+			//第四部分
+			var arr3 = ['首页','电视直播','热卖榜','风尚惠','手机购物','品牌店中店'];
+//			$('<div/>').attr('id','four').appendTo('#wai')
+			$('<div/>').attr('id','san41').html("<img src='../img/third1.png'><span>全部商品分类</span><img src='../img/four.png'>").appendTo('#four');
+			
+			$('<ul/>').attr('id','ul4').appendTo('#four');
+			$.each(arr3,function(j,shu){
+				$('<li/>').html(arr3[j]).appendTo('#ul4');
+			})
+			
+			
+			$('<button/>').attr('id','btn43').html("<img src='../img/third2.png'>").appendTo('#four');
+			$('<button/>').attr('id','btn44').html("点击咨询").appendTo('#four');
+			
+			//第五部分轮播图
+			//思路：1、定时更新    2、激活对应按钮      3、点击按钮跳转对应图片							
+		
+	          	var i=-1;
+	          	var $li=$('.pic #ul5 li');	          
+	          	var time=setInterval(move,3000);
+	          	for(i=0;i<5;i++){
+	          		$('<li/>').html(i).appendTo($('.nav #ul6'));
+	          	}
+	          
+	          	function move(){
+	          	    i++;
+	          	    if(i>=$li.length){
+	                	i=0;
+	                }
+					
+	          	    if(i<$li.length){
+						$('.img1').css('left','-760px');
+						$('.img2').css({'left':'-20px','display':'none'});
+						
+						//显示对应的背景
+	          	    	$li.eq(i).show().siblings().hide();
+	          	    	//激活对应按钮
+	          	    	$('.nav #ul6 li').eq(i).addClass('select').siblings().removeClass('select');
+						
+						$('.img1').eq(i).animate({"left":0},700,function(){
+							$('.img2').eq(i).css('display','block').animate({"left":"0px"},700);
+						});   	        		
+	               }            
+	           }
+	          	//鼠标移入是停止滚动，鼠标移出时继续滚动
+	          	$li.on('mouseenter',function(){
+	          		clearInterval(time);
+	          	}).on('mouseleave',function(){
+	          		time=setInterval(move,3000);
+	          	})
+	          	
+	          	//给按钮绑定点击事件
+	          	
+	          	$('.nav #ul6 li').each(function(idx){
+	          		$(this).on('click',function(){
+	          		clearInterval(time);
+	          		i=idx-1;
+	          		move();
+	          		})	          		
+	          	})
+	          	
+	          //创建一个当前系统的时间
+	         
+	          	 var d = new Date();
+	         	 var dd = d.getHours();
+	          	var ddd = d.getMinutes();
+	          	var dddd = d.getSeconds();
+	        
+	         
+	          $('<div/>').attr('id','wu1').appendTo('#wu');
+	          $('<ul/>').attr('id','ul7').appendTo('#wu1');
+	          for(var i=0; i<5;i++){
+	          	$('<li/>').appendTo('#ul7')
+	          }
+			  $('#wu #ul7').find('li').eq(0).attr('id','ul71').addClass('zuo').html('<img src="../img/wu1.jpg">正在直播');
+			  $('#wu #ul7').find('li').eq(1).addClass('no').html('<img src="../img/third4.png">');
+			  $('#wu #ul7').find('li').eq(2).addClass('zuo').html('当前播放：'+dd+':'+ddd+':'+dddd);
+			  $('#wu #ul7').find('li').eq(3).addClass('zuo').html('招财进宝名玉手中值组');
+			  $('#wu #ul7').find('li').eq(4).html('立减20元<span>￥860</span>').addClass('wured');
+			  var $zhuce =$('<div/>');
+			  $zhuce.attr({'id':'wu5','style':'clear:both'}).appendTo('#wu');
+			  $zhuce.html('<p id="pi"><button id="wbtn5">免费注册</button><button id="wbtn6">电话会员网站登录</button><span id="sp4">均可获<span id="sp5">50元</span></span><img src="../img/third5.png"></p>')
+			 
+			 $('<div/>').attr('id','wu52').insertAfter('#wu5');
+			 $('<p/>').html('<img src="../img/wu5.png"><span id="sp6">大Q4G八核超薄智能手机<br>上一节目  08：30~09:10<br><span id="sp7">立减20元</span><span id="sp8">￥979</span></span>').appendTo('#wu52');
+			 
+		//第六部分
+		var $ul8 = $('<ul/>')
+		$ul8.attr('id','ul8').appendTo('#liu');
+		var ar =['liuLi11','liuLi12','liuLi13'];
+		for(var i = 0;i<3;i++){
+			$('<li/>').addClass(ar[i]).appendTo('#ul8');
+		}
+		
+		$('#ul8 li').eq(0).html("<p><img src='../img/liu11.png'><span id='spaliu1'>今日特惠</span><img src='../img/liu12.png'></p><p id='liup2'><img src='../img/liu1.png'><br>拖把健康的减肥快捷的<br><span id='spaliu2'>今日劲爆特价：￥239</span></p>");
+		
+		$('#ul8 li').eq(1).html("<p>TV热播</p><div id='liu2'></div>");
+		
+		$('#ul8 li').eq(2).html("<p>风尚头条</p><div id='liu3'></div>");
+		
+		var ar2 = ['liuLi21','liuLi22','liuLi23'];
+		for(var i =0; i<3 ;i++){
+			$('<li/>').addClass(ar2[i]).appendTo('#ul8 #liu2');
+		}
+		$('#ul8 #liu2 li').eq(0).html("<p><img src='../img/liu2.png'><span id='spaliu3'>交罚款就大结局的到家啦<br><span id='spaliu4'><span>立减20元</span>￥979</span></span></p><p id='liup21'><img src='../img/liu3.png'><span id='spaliu5'>手机就大结局的到家啦<br><span id='spaliu6'><span>立减20元</span>￥979</span></span></p>")
+		$('#ul8 #liu2 li').eq(1).html("<img src='../img/liu4.png'><p>招财手链<p><span>立减20元：</span><i>￥860</i></p></p>")
+		$('#ul8 #liu2 li').eq(2).html("<p><img src='../img/liu5.png'><span id='spaliu7'>交罚款就大结局的到家啦<br><span id='spaliu8'><span>立减20元</span>￥979</span></span></p><p id='liup23'><img src='../img/liu6.png'><span id='spaliu9'>手机就大结局的到家啦<br><span id='spaliu10'><span>立减20元</span>￥979</span></span></p>")
+		
+		var arr4 = ['【人气】珍珠项链专题','【促销】品牌店中店','【帮助】如何使用礼金卷编码','【公告】注册或电视会员升级或50元','【公告】网上订购直播商品立减20元','【帮助】风尚购物之购物说明','【帮助】配送地区及运费说明','【帮助】支付方式说明','【帮助】售后服务政策','【帮助】风尚购物之服务承诺','【帮助】积分说明','【帮助】订单状态说明',];
+		$.each(arr4,function(dex,fn){
+			$('<li/>').html(fn).appendTo('#ul8 #liu3');
+		})
+		
+		//第八部分
+		var $ul88 = $('<ul/>')
+		$ul88.attr('id','ul88').appendTo('#ba');
+		var ar8 =['liuLi118','liuLi128','liuLi138'];
+		for(var i = 0;i<3;i++){
+			$('<li/>').addClass(ar8[i]).appendTo('#ul88');
+		}
+		
+		$('#ul88 li').eq(0).html("<p><span id='spaliu18'>今日特惠</span></p><p id='liup28'><img src='../img/qi1.png'><br>拖把健康的减肥快捷的<br><span id='spaliu28'>今日劲爆特价：￥239</span></p>");
+		
+		$('#ul88 li').eq(1).html("<p>TV热播</p><div id='liu28'></div>");
+		
+		$('#ul88 li').eq(2).html("<div id='liu38'><img src='../img/qi8.png'><p id='p88'>家庭休闲躺椅<br><span>￥198</span></p></div>");
+		
+		var ar28 = ['liuLi218','liuLi228','liuLi238'];
+		for(var i =0; i<3 ;i++){
+			$('<li/>').addClass(ar28[i]).appendTo('#ul88 #liu28');
+		}
+		$('#ul88 #liu28 li').eq(0).html("<p><img src='../img/qi2.png'><span id='spaliu38'>交罚款就大结局的到家啦<br><span id='spaliu48'><span>立减20元</span>￥979</span></span></p><p id='liup218'><img src='../img/qi3.png'><span id='spaliu58'>手机就大结局的到家啦<br><span id='spaliu68'><span>立减20元</span>￥979</span></span></p>")
+		$('#ul88 #liu28 li').eq(1).html("<img src='../img/qi4.png'><p>招财手链<p><span>立减20元：</span><i>￥860</i></p></p>")
+		$('#ul88 #liu28 li').eq(2).html("<p><img src='../img/qi5.png'><span id='spaliu78'>交罚款就大结局的到家啦<br><span id='spaliu88'><span>立减20元</span>￥979</span></span></p><p id='liup238'><img src='../img/qi6.png'><span id='spaliu98'>手机就大结局的到家啦<br><span id='spaliu108'><span>立减20元</span>￥979</span></span></p>")
+		
+		//第九部分
+		var $ul889 = $('<ul/>')
+		$ul889.attr('id','ul889').appendTo('#jiu');
+		var ar89 =['liuLi1189','liuLi1289','liuLi1389'];
+		for(var i = 0;i<3;i++){
+			$('<li/>').addClass(ar89[i]).appendTo('#ul889');
+		}
+		
+		$('#ul889 li').eq(0).html("<p><span id='spaliu189'>今日特惠</span></p><p id='liup289'><img src='../img/ba.png'><br>拖把健康的减肥快捷的<br><span id='spaliu289'>今日劲爆特价：￥239</span></p>");
+		
+		$('#ul889 li').eq(1).html("<p>TV热播</p><div id='liu289'></div>");
+		
+		$('#ul889 li').eq(2).html("<div id='liu389'><img src='../img/ba6.png'><p id='p889'>家庭休闲躺椅<br><span>￥198</span></p></div>");
+		
+		var ar289 = ['liuLi2189','liuLi2289','liuLi2389'];
+		for(var i =0; i<3 ;i++){
+			$('<li/>').addClass(ar289[i]).appendTo('#ul889 #liu289');
+		}
+		$('#ul889 #liu289 li').eq(0).html("<p><img src='../img/ba1.png'><span id='spaliu389'>交罚款就大结局的到家啦<br><span id='spaliu489'><span>立减20元</span>￥979</span></span></p><p id='liup2189'><img src='../img/ba2.png'><span id='spaliu589'>手机就大结局的到家啦<br><span id='spaliu689'><span>立减20元</span>￥979</span></span></p>")
+		$('#ul889 #liu289 li').eq(1).html("<img src='../img/ba3.png'><p>招财手链<p><span>立减20元：</span><i>￥860</i></p></p>")
+		$('#ul889 #liu289 li').eq(2).html("<p><img src='../img/ba4.png'><span id='spaliu789'>交罚款就大结局的到家啦<br><span id='spaliu889'><span>立减20元</span>￥979</span></span></p><p id='liup2389'><img src='../img/ba5.png'><span id='spaliu989'>手机就大结局的到家啦<br><span id='spaliu1089'><span>立减20元</span>￥979</span></span></p>")
+		
+		//第十部分
+		var $ul8891 = $('<ul/>')
+		$ul8891.attr('id','ul8891').appendTo('#shi');
+		var ar891 =['liuLi11891','liuLi12891','liuLi13891'];
+		for(var i = 0;i<3;i++){
+			$('<li/>').addClass(ar891[i]).appendTo('#ul8891');
+		}
+		
+		$('#ul8891 li').eq(0).html("<p><span id='spaliu1891'>今日特惠</span></p><p id='liup2891'><img src='../img/jiu1.png'><br>拖把健康的减肥快捷的<br><span id='spaliu2891'>今日劲爆特价：￥239</span></p>");
+		
+		$('#ul8891 li').eq(1).html("<p>TV热播</p><div id='liu2891'></div>");
+		
+		$('#ul8891 li').eq(2).html("<div id='liu3891'><img src='../img/jiu7.png'><p id='p8891'>家庭休闲躺椅<br><span>￥198</span></p></div>");
+		
+		var ar2891 = ['liuLi21891','liuLi22891','liuLi23891'];
+		for(var i =0; i<3 ;i++){
+			$('<li/>').addClass(ar2891[i]).appendTo('#ul8891 #liu2891');
+		}
+		$('#ul8891 #liu2891 li').eq(0).html("<p><img src='../img/jiu2.png'><span id='spaliu3891'>交罚款就大结局的到家啦<br><span id='spaliu4891'><span>立减20元</span>￥979</span></span></p><p id='liup21891'><img src='../img/jiu3.png'><span id='spaliu5891'>手机就大结局的到家啦<br><span id='spaliu6891'><span>立减20元</span>￥979</span></span></p>")
+		$('#ul8891 #liu2891 li').eq(1).html("<img src='../img/jiu4.png'><p>招财手链<p><span>立减20元：</span><i>￥860</i></p></p>")
+		$('#ul8891 #liu2891 li').eq(2).html("<p><img src='../img/jiu5.png'><span id='spaliu7891'>交罚款就大结局的到家啦<br><span id='spaliu8891'><span>立减20元</span>￥979</span></span></p><p id='liup23891'><img src='../img/jiu6.png'><span id='spaliu9891'>手机就大结局的到家啦<br><span id='spaliu10891'><span>立减20元</span>￥979</span></span></p>")
+		
+		//第十一部分
+		var $ul88912 = $('<ul/>')
+		$ul88912.attr('id','ul88912').appendTo('#shyi');
+		var ar8912 =['liuLi118912','liuLi128912','liuLi138912'];
+		for(var i = 0;i<3;i++){
+			$('<li/>').addClass(ar8912[i]).appendTo('#ul88912');
+		}
+		
+		$('#ul88912 li').eq(0).html("<p><span id='spaliu18912'>今日特惠</span></p><p id='liup28912'><img src='../img/shi.png'><br>拖把健康的减肥快捷的<br><span id='spaliu28912'>今日劲爆特价：￥239</span></p>");
+		
+		$('#ul88912 li').eq(1).html("<p>TV热播</p><div id='liu28912'></div>");
+		
+		$('#ul88912 li').eq(2).html("<div id='liu38912'><img src='../img/shi7.png'><p id='p88912'>家庭休闲躺椅<br><span>￥198</span></p></div>");
+		
+		var ar28912 = ['liuLi218912','liuLi228912','liuLi238912'];
+		for(var i =0; i<3 ;i++){
+			$('<li/>').addClass(ar28912[i]).appendTo('#ul88912 #liu28912');
+		}
+		$('#ul88912 #liu28912 li').eq(0).html("<p><img src='../img/shi2.png'><span id='spaliu38912'>交罚款就大结局的到家啦<br><span id='spaliu48912'><span>立减20元</span>￥979</span></span></p><p id='liup218912'><img src='../img/shi3.png'><span id='spaliu58912'>手机就大结局的到家啦<br><span id='spaliu68912'><span>立减20元</span>￥979</span></span></p>")
+		$('#ul88912 #liu28912 li').eq(1).html("<img src='../img/shi4.png'><p>招财手链<p><span>立减20元：</span><i>￥860</i></p></p>")
+		$('#ul88912 #liu28912 li').eq(2).html("<p><img src='../img/shi5.png'><span id='spaliu78912'>交罚款就大结局的到家啦<br><span id='spaliu88912'><span>立减20元</span>￥979</span></span></p><p id='liup238912'><img src='../img/shi6.png'><span id='spaliu98912'>手机就大结局的到家啦<br><span id='spaliu108912'><span>立减20元</span>￥979</span></span></p>")
+		
+		//end1
+		var $pd1 = $('<p/>');
+		$pd1.html("<span id='sp1'>免费订阅优惠信息</span><input type='text' placeholder='请输入您的邮箱'><button>确认</button>我们会将最新的促销优惠信息发送给您");
+		$pd1.appendTo('#end1');
+		
+		//end2
+		var $eul = $('<ul/>');
+		$eul.appendTo("#end2");
+		var arrd2 = ['帮助中心','购物流程','积分规则','积分绑定使用','订单状态说明'];
+		$.each(arrd2,function(ad2,rd2){
+			$('<li/>').html(rd2).appendTo($eul);
+		})
+		$eul.find('li').eq(0).attr('id','eli1');
+
+		var $eul2 = $('<ul/>');
+		$eul2.appendTo("#end2");
+		var arrd22 = ['配送方式','免费配送地区','配送范围','收费标准'];
+		$.each(arrd22,function(ad2,rd2){
+			$('<li/>').html(rd2).appendTo($eul2);
+		})
+		$eul2.find('li').eq(0).attr('id','eli12');
+		
+		var $eul3 = $('<ul/>');
+		$eul3.appendTo("#end2");
+		var arrd23 = ['支付方式','货到付款','配送范围','收费标准','微信支付'];
+		$.each(arrd23,function(ad2,rd2){
+			$('<li/>').html(rd2).appendTo($eul3);
+		})
+		$eul3.find('li').eq(0).attr('id','eli13');
+		
+		var $eul4 = $('<ul/>');
+		$eul4.appendTo("#end2");
+		var arrd24 = ['客户服务','在线客服','售后机退货'];
+		$.each(arrd24,function(ad2,rd2){
+			$('<li/>').html(rd2).appendTo($eul4);
+		})
+		$eul4.find('li').eq(0).attr('id','eli14');
+		
+		var $eul5 = $('<ul/>');
+		$eul5.appendTo("#end2");
+		var arrd25 = ['会员中心','在线客服','售后机退货','配送范围','收费标准','微信支付'];
+		$.each(arrd25,function(ad2,rd2){
+			$('<li/>').html(rd2).appendTo($eul5);
+		})
+		$eul5.find('li').eq(0).attr('id','eli15');
+		
+		var $eul6 = $('<ul/>');
+		$eul6.appendTo("#end2");
+		var arrd26 = ['招商专区','在线客服','售后机退货','配送范围','收费标准','微信支付'];
+		$.each(arrd26,function(ad2,rd2){
+			$('<li/>').html(rd2).appendTo($eul6);
+		})
+		$eul6.find('li').eq(0).attr('id','eli16');
+		
+		var $eul7 = $('<ul/>');
+		$eul7.appendTo("#end2");
+		var arrd27 = ['关注我们','招贤纳士',''];
+		$.each(arrd27,function(ad2,rd2){
+			$('<li/>').html(rd2).appendTo($eul7);
+		})
+		$eul7.find('li').eq(0).attr('id','eli17');
+		$eul7.find('li').eq(2).html("<img src='../img/end1.png'>");
+		
+		var $div =$('<div/>').attr('id','div1');
+		$div.html("<img src='../img/end2.png'>").appendTo('#end2');
+		
+		
+		//end3
+		$('<h4/>').html("<span>触屏版</span><em>电脑版</em>").appendTo("#end3");
+		$('<p/>').html("健康减肥减肥课附近开了房间 附近空地方").appendTo("#end3");
+		$('<p/>').html("健康减肥减地方个风格的风格 发给谁发的gfgfgsg").appendTo("#end3");
+		$('<p/>').html("健康减肥减肥课附近开了房间 附近空地方个风格的风格 发给谁公司发给各个方法").appendTo("#end3");
+		$('<p/>').html("健康减地方个风格的风发谁发的").appendTo("#end3");
+		})
+			
+		</script>
+	</head>
+	<body>
+		<div id="wai">
+			<div id="first"></div>
+			<div id="second"></div>
+			<div id="third"></div>
+			<div id="four"></div>
+			<div id='wu'>
+			<div id="main">
+			<div class="pic">
+				<ul id='ul5'>
+					<li>
+						<img class="img0" src="../img/bg1.jpg"/>
+						<img class="img1" id='niu1' src="../img/text1.png"/>
+						<img class="img2" id='niu2' src="../img/con1.png"/>
+					</li>
+					<li>
+						<img class="img0" src="../img/bg2.jpg"/>
+						<img class="img1" src="../img/text2.png"/>
+						<img class="img2" src="../img/con2.png"/>
+					</li>
+					<li>
+						<img class="img0" src="../img/bg3.jpg"/>
+						<img class="img1" src="../img/text3.png"/>
+						<img class="img2" src="../img/con3.png"/>
+					</li>
+					<li>
+						<img class="img0" src="../img/bg4.jpg"/>
+						<img class="img1" src="../img/text4.png"/>
+						<img class="img2" src="../img/con4.png"/>
+					</li>
+					<li>
+						<img class="img0" src="../img/bg5.jpg"/>
+						<img class="img1" src="../img/text5.png"/>
+						<img class="img2" src="../img/con5.png"/>
+					</li>
+					
+				</ul>
+			</div>
+			<div class="nav">
+				<ul id='ul6'></ul>
+			</div>						
+		</div>
+	</div>
+	<div id="liu"></div>
+	<div style='clear: both;'></div>
+	<div id='qi'><img src="../img/red.png"></div>
+	<div id="ba"></div>
+	<div id="jiu"></div>
+	<div id="shi"></div>
+	<div id="shyi"></div>
+	<div id="end1"></div>
+	<div id="end2"></div>
+	<div style='clear: both;'></div>
+	<div id="end3"></div>
+</div>
+	</body>
+</html>

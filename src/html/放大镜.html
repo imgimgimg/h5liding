@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/放大镜.css"/>
+		<script src='../js/jquery-1.8.3.min.js'></script>
+		<script src='../js/jquery.elevatezoom.js'></script>
+		
+		
+		<script>
+			jQuery(function(){
+			//头部
+			var arr1 = ['登录','免费注册','送50元','电话订购会员登录','送50元','我的风尚',];
+			$('<ul/>').addClass('yi').appendTo('#first')
+
+			$.each(arr1,function(i,cal){
+				$('<li/>').appendTo('.yi').html(cal)
+			})
+			$('.yi').find('li').eq(2).addClass('red');			
+			$('.yi').find('li').eq(4).addClass('red');
+			
+			//第二部分
+			var arr2 = ['er1','er2','er3','er4'];
+			var i = 0 ;
+			$('<ul>').addClass('er').appendTo('#second');
+			$.each(arr2,function(dex,cal){
+				
+				$('<li/>').addClass(cal).appendTo('.er');
+			})
+			//第三部分
+			$('<div/>').attr('id','san1').html("<img src='../img/second1.jpg'>").appendTo('#third');
+			$('<div/>').attr('id','san2').html("<img src='../img/second2.jpg'>").appendTo('#third');
+			$('<input/>').attr({'id':'btn1','type':'text','placeholder':'请输入商品关键词或者货号',}).appendTo('#third');
+			$('<button/>').attr('id','btn2').html('搜索').insertAfter('#btn1');
+			$('<ul/>').attr('id','ul2').appendTo('#third');
+			for (var i=0;i<3;i++) {
+				$('<li/>').appendTo('#ul2');
+			}
+			$('#ul2').find('li').eq(0).html('<img src="../img/second3.png">');
+			$('#ul2').find('li').eq(1).html('网站订购<br><span>全场免运费</span>').addClass('rd');
+			$('#ul2').find('li').eq(2).html('货到付款<br><span>支付宝</span>');
+			$('<button/>').attr('id','btn3').html("<img src='../img/second4.png'>去购物车结算<img src='../img/second5.png'>").appendTo('#third');
+			
+			//第四部分
+			var arr3 = ['首页','电视直播','热卖榜','风尚惠','手机购物','品牌店中店'];
+//			$('<div/>').attr('id','four').appendTo('#wai')
+			$('<div/>').attr('id','san41').html("<img src='../img/third1.png'><span>全部商品分类</span><img src='../img/four.png'>").appendTo('#four');
+			
+			$('<ul/>').attr('id','ul4').appendTo('#four');
+			$.each(arr3,function(j,shu){
+				$('<li/>').html(arr3[j]).appendTo('#ul4');
+			})
+			
+			
+			$('<button/>').attr('id','btn43').html("<img src='../img/third2.png'>").appendTo('#four');
+			$('<button/>').attr('id','btn44').html("点击咨询").appendTo('#four');
+			
+			
+			//end1
+		var $pd1 = $('<p/>');
+		$pd1.html("<span id='sp1'>免费订阅优惠信息</span><input type='text' placeholder='请输入您的邮箱'><button>确认</button>我们会将最新的促销优惠信息发送给您");
+		$pd1.appendTo('#end1');
+		
+		//end2
+		var $eul = $('<ul/>');
+		$eul.appendTo("#end2");
+		var arrd2 = ['帮助中心','购物流程','积分规则','积分绑定使用','订单状态说明'];
+		$.each(arrd2,function(ad2,rd2){
+			$('<li/>').html(rd2).appendTo($eul);
+		})
+		$eul.find('li').eq(0).attr('id','eli1');
+
+		var $eul2 = $('<ul/>');
+		$eul2.appendTo("#end2");
+		var arrd22 = ['配送方式','免费配送地区','配送范围','收费标准'];
+		$.each(arrd22,function(ad2,rd2){
+			$('<li/>').html(rd2).appendTo($eul2);
+		})
+		$eul2.find('li').eq(0).attr('id','eli12');
+		
+		var $eul3 = $('<ul/>');
+		$eul3.appendTo("#end2");
+		var arrd23 = ['支付方式','货到付款','配送范围','收费标准','微信支付'];
+		$.each(arrd23,function(ad2,rd2){
+			$('<li/>').html(rd2).appendTo($eul3);
+		})
+		$eul3.find('li').eq(0).attr('id','eli13');
+		
+		var $eul4 = $('<ul/>');
+		$eul4.appendTo("#end2");
+		var arrd24 = ['客户服务','在线客服','售后机退货'];
+		$.each(arrd24,function(ad2,rd2){
+			$('<li/>').html(rd2).appendTo($eul4);
+		})
+		$eul4.find('li').eq(0).attr('id','eli14');
+		
+		var $eul5 = $('<ul/>');
+		$eul5.appendTo("#end2");
+		var arrd25 = ['会员中心','在线客服','售后机退货','配送范围','收费标准','微信支付'];
+		$.each(arrd25,function(ad2,rd2){
+			$('<li/>').html(rd2).appendTo($eul5);
+		})
+		$eul5.find('li').eq(0).attr('id','eli15');
+		
+		var $eul6 = $('<ul/>');
+		$eul6.appendTo("#end2");
+		var arrd26 = ['招商专区','在线客服','售后机退货','配送范围','收费标准','微信支付'];
+		$.each(arrd26,function(ad2,rd2){
+			$('<li/>').html(rd2).appendTo($eul6);
+		})
+		$eul6.find('li').eq(0).attr('id','eli16');
+		
+		var $eul7 = $('<ul/>');
+		$eul7.appendTo("#end2");
+		var arrd27 = ['关注我们','招贤纳士',''];
+		$.each(arrd27,function(ad2,rd2){
+			$('<li/>').html(rd2).appendTo($eul7);
+		})
+		$eul7.find('li').eq(0).attr('id','eli17');
+		$eul7.find('li').eq(2).html("<img src='../img/end1.png'>");
+		
+		var $div =$('<div/>').attr('id','div1');
+		$div.html("<img src='../img/end2.png'>").appendTo('#end2');
+		
+		
+		//end3
+		$('<h4/>').html("<span>触屏版</span><em>电脑版</em>").appendTo("#end3");
+		$('<p/>').html("健康减肥减肥课附近开了房间 附近空地方").appendTo("#end3");
+		$('<p/>').html("健康减肥减地方个风格的风格 发给谁发的gfgfgsg").appendTo("#end3");
+		$('<p/>').html("健康减肥减肥课附近开了房间 附近空地方个风格的风格 发给谁公司发给各个方法").appendTo("#end3");
+		$('<p/>').html("健康减地方个风格的风发谁发的").appendTo("#end3");
+		
+//		$("#zoom_04").elevateZoom({
+//				zoomWindowFadeIn:500,
+//				zoomWindowFadeOut:500,
+//				lensFadeIn: 500,
+//				lensFadeOut:500
+//			});	
+		});	
+		</script>
+		
+	</head>
+	<body>
+	<div id="wai">
+			<div id="first"></div>
+			<div id="second"></div>
+			<div id="third"></div>
+			<div id="four"></div>
+			<div id='wu'>
+				<ul>
+					<li id='wli1'>所有类别  》</li>
+					<li id='wli2'>家庭生活  》</li>
+					<li id='wli3'>家居用品</li>
+				</ul>
+			</div>
+			<div id='liu'>
+				<div id='liu1'>
+					<ul id='uliu'>
+						<li id='liu11'>
+							<img id="zoom_04" src='../img/big/big1.png' data-zoom-image="../img/big/big8.png"/>
+						</li>
+						<li id='liu12'>
+							<img src="../img/big/big7.png">
+						</li>
+						<li id='liu13'><img src="../img/big/big6.png"></li>
+					</ul>
+				</div>
+				<div id='liu2'>
+					<ul id ='uliu2'>
+						<li id='uliu2li1'>
+							<p>高档点开机费牛皮沙发</p>
+							<p id='pliu1'>话费就回家尽快发好看付款就好看放假啊费  按罚款费啊</p>
+						</li>
+						<li id='uliu2li2'>
+							<p>货号：<span id='spp'>303903</span></p>
+							<p>风尚价格：<span id='spliu2'>￥6899</span></p>
+						</li>
+						<li id='uliu2li3'>
+							<div><p id='pliu23'>35</p><p id="pp2">网购积分</p></div>
+							<div><p id='pliu24'>58</p><p id="pp3">月销量</p></div>
+							<div id='nid'>暂无评价</div>	
+						</li>
+						<div style='clear: both;'></div>
+						<li id='uliu2li4'>
+							<p>选择：
+								<button><img src="../img/big/big2.png"></button>
+								<button><img src="../img/big/big2.png"></button>
+								<button><img src="../img/big/big2.png"></button>
+							</p>
+							<p>选择尺寸：<button>共同</button></p>
+						</li>
+						<li id='uliu2li5'>
+							<span><span id='ap'>买就送赠品：</span><br>积分即可垃圾费*2，可移动布娃*2</span>
+						</li>
+						<li id='uliu2li6'>
+							<button id='btnul1'>快速购买</button>
+							<button id='btnul2'>加入购物车</button>
+						</li>
+					</ul>
+				</div>
+				<div id='liu3'>
+					<ul>
+						<li id='dd1'>品牌名称：迪享萨尔斯</li>
+						<li id='dd3'>进入品牌页面更多</li>
+						<li id='dd4'>【网购特惠】<br>支付宝/银联恢复健康 的还记得放函数</li>
+						<li id='dd5'>手机扫码订购<br><img src="../img/big/big3.png"></li>
+						<li id='dd6'>货到付款/支付宝/银联支付/微信支付</li>
+					</ul>
+				</div>
+			<div style="clear: both;"></div>	
+			<div id="end1"></div>
+			<div id="end2"></div>
+			<div style='clear: both;'></div>
+			<div id="end3"></div>
+	</div>
+	</body>
+</html>
