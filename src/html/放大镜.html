@@ -6,7 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/放大镜.css"/>
 		<script src='../js/jquery-1.8.3.min.js'></script>
 		<script src='../js/jquery.elevatezoom.js'></script>
-		
+		<script src="../js/mycookie.js"></script>
 		
 		<script>
 			jQuery(function(){
@@ -130,6 +130,58 @@
 		$('<p/>').html("健康减肥减地方个风格的风格 发给谁发的gfgfgsg").appendTo("#end3");
 		$('<p/>').html("健康减肥减肥课附近开了房间 附近空地方个风格的风格 发给谁公司发给各个方法").appendTo("#end3");
 		$('<p/>').html("健康减地方个风格的风发谁发的").appendTo("#end3");
+		
+		
+		//实现购物车的效果使用cookie
+		
+		var str = getCookie("arr");
+		var arr = [];
+		if(str != ""){
+			
+			//说明之前的cookie中有商品的内容；
+			//取出来转换成数组
+			arr = eval(str);
+			
+		}
+		
+		var $allA = $('#btnul2');
+		$allA.on('click',function(){
+			
+			//价格
+			var $oPrice = $('#spliu2');
+			//商品的编号
+			var $oSpan = $('#spp');
+			
+			var obj = {};
+			
+			obj.product = $oSpan.html();
+			obj.price = $oPrice.html();
+			
+			//将创建好的商品添加到数组中
+			arr.push(obj);
+			
+			//将数组的内容设置到cookie中
+			addCookie("arr",arr.toSource(),7);
+			
+			alert("添加成功");
+			
+		});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//放大的几种效果图；
 		
 //		$('#zoom_01').elevateZoom({}); 
 		//
