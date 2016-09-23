@@ -5,6 +5,7 @@
 		<title>登录</title>
 		<link rel="stylesheet" type="text/css" href="../css/denglu.css"/>
 		<script src="../js/jquery-1.12.0.js"></script>
+		<script src="../js/mycookie.js"></script>
 		<script>
 			$(function(){
 				//第一部分
@@ -38,6 +39,19 @@
 //					//oSpan.html(String(reg.test(str)))
 //				});
 
+
+
+				var str4 = getCookie('arr');
+				var arr = eval(str4);
+				var num =arr[0].product;  
+				var pw = arr[0].price;
+				console.log(num);
+//				for(var i = 0; i<arr.length;i++)
+//				{
+//					$('<li/>').html(arr[0].product).appendTo('body');
+//				}
+				
+				
 				$('#put3').focus(function () { 
 					$('#put3').val(''); 
 				}) 
@@ -47,37 +61,39 @@
 				$('#put5').focus(function () { 
 					$('#put5').val(''); 
 				}) 
-				var s;
+				var s =false;
 				$('#put3').on('blur',function () { 					
 					var str=this.value;
-					var reg = (/(^1[35678]\d{9}$)|(^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$)/);
-					s=reg.test(str);
-					if (s==false)
+					console.log("str1:"+str);
+//					var reg = (//);
+//					s=reg.test(str);
+					if (str != num)
 					{ 
 						$('#put3').val('请输入手机或邮箱').css('color','red'); 
-					} 
+					}else{s=true;} 
 				}) 
-				var s1;
+				var s1 =false;
 				$('#put4').on('blur',function () { 
 					var str=this.value;
-					var reg=/^.{6,20}$/;
-					s1=reg.test(str);
-					if(s1==false){						
+					console.log(str);
+//					var reg=//;
+//					s1=reg.test(str);
+					if(str != pw){						
 						$('#put4').val('密码不合法').css('color','red');
-					}
+					}else{s1=true;}
 				}) 
-				var s2;
+				var s2 =false;
 				$('#put5').on('blur',function () { 
 					var str=this.value;
-					var reg=/\d{1,4}/;
+					var reg=/^\d{4}$/;
 					s2=reg.test(str);
 					if(s2==false){						
 						$('#put5').val('再试试看').css('color','red');
-					}
+					}else{s2=true;}
 				})
 				$('#btn7').click(function () {
-					console.log(s);
-					console.log(s1);
+//					console.log(s);
+//					console.log(s1);
 					if (s && s1 && s2) 
 					{ alert('登陆成功！'); } 
 					else { alert('登陆失败！'); } 

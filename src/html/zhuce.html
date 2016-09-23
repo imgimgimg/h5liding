@@ -5,6 +5,7 @@
 		<title>注册</title>
 		<link rel="stylesheet" type="text/css" href="../css/zhuce.css"/>
 		<script src="../js/jquery-1.12.0.js"></script>
+		<script src="../js/mycookie.js"></script>
 		<script>
 			$(function(){
 				//第一部分
@@ -62,7 +63,7 @@
 				var s1;
 				$('#put4').on('blur',function () { 
 					var str=this.value;
-					var reg=/^.{6}$/;
+					var reg=/^\d{4}$/;
 					s1=reg.test(str);
 					if(s1==false){						
 						$('#put4').val('验证码不对').css('color','red');
@@ -80,16 +81,17 @@
 				var s3;
 				$('#put6').on('blur',function () { 
 					var str=this.value;
-					var reg=/\d{6}/;
+					
+					var reg=/^\d{6}$/;
 					s3=reg.test(str);
 					if(s3==false){
 						
 						$('#put6').val('密码不正确').css('color','red');
 					}
 					$('#put7').on('blur',function () { 
+					
 					var str1=this.value;
-					
-					
+
 					if(str1!=str){						
 						$('#put7').val('密码不对应').css('color','red');
 					}
@@ -98,7 +100,7 @@
 				var s4;
 				$('#put8').on('blur',function () { 
 					var str=this.value;
-					var reg=/\d{6}/;
+					var reg=/^\d{1,4}$/;
 					s4=reg.test(str);
 					if(s4==false){						
 						$('#put8').val('验证码不对').css('color','red');
@@ -110,7 +112,39 @@
 					console.log(s);
 					console.log(s1);
 					if (s && s1 && s2 && s3 && s4) 
-					{ alert('注册成功！'); } 
+					{ 
+						alert('注册成功！');
+						
+						//实现购物车的效果使用cookie
+		
+						var str = getCookie("arr");
+						var arr = [];
+						if(str != ""){
+							
+							//说明之前的cookie中有商品的内容；
+							//取出来转换成数组
+							arr = eval(str);
+						}
+						//价格
+						var $num = $('#put3').val();
+						//商品的编号
+						var $pw = $('#put6').val();
+						
+						var obj = {};
+						
+						obj.product = $num;
+						obj.price = $pw;
+						
+						//将创建好的商品添加到数组中
+						arr.push(obj);
+						
+						//将数组的内容设置到cookie中
+						addCookie("arr",arr.toSource(),7);
+						
+						alert("成功添加到cookie");
+			
+		
+						}
 					else { alert('注册失败！'); } 
 				});	
 
