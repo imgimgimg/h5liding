@@ -152,13 +152,16 @@
 			//商品的编号
 			var $oSpan = $('#spp');
 			//图片
-			var $oPicture =$('#zoom_03');
+			var $oPicture = $('#zoom_03');
+			//积分量
+			var $jifen = $('#pliu23');
 			
 			var obj = {};
 			
 			obj.product = $oSpan.html();
 			obj.price = $oPrice.html();
 			obj.pic = $oPicture.attr("src");
+			obj.jf = $jifen.html();
 			
 			//将创建好的商品添加到数组中
 			arr.push(obj);

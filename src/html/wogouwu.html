@@ -36,13 +36,30 @@
 				for(var i = 0; i<arr.length;i++)
 				{
 					var $oLi = $('<li/>');
-					$oLi.css({
-						'list-style':'none',					
-					})
-					$oLi.html('<img id="img2" src="'+arr[i].pic+'">'+arr[i].product+"："+arr[i].price).appendTo($oUl);
+					$oLi.css('list-style','none')
+					
+					$oLi.html("<img id='img2' src='"
+					+arr[i].pic+"'><span id='gosp2'>"
+					+arr[i].product+"</span><span id='gosp3'>"
+					+arr[i].price+"</span><span id='gosp4'>"
+					+arr[i].jf+"</span><button id='gosp5'>"
+					+"&times;"+"</button>").appendTo($oUl);
+	//$oLi.html('<img id="img2" src="'+arr[i].pic+'">'+arr[i].product+arr[i].price).appendTo($oUl);
 				}
 				
+			var $btnto = $('#to2');
+		$btnto.on('click',function(){
+			location.href = "fangda.html";
 			
+		});
+		
+		
+		$('#gosp5').on('click',function(){
+			console.log("jiji");
+			$oLi.remove();
+		})
+		
+		
 			
 			});
 			
@@ -71,11 +88,12 @@
 							<option>武汉</option>
 						</select>
 					</li>
-					<li id='sili5'>数量</li>
+					<li id='sili5'>网购积分</li>
 					<li id='sili6'>金额小计</li>
 				</ul>
 				<div style='clear: both;'></div>
 				<ul id='go'></ul>
+				<button id='to2'>返回购物</button>
 			</div>
 		
 		

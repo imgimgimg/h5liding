@@ -54,9 +54,8 @@
 			$('<button/>').attr('id','btn44').html("点击咨询").appendTo('#four');
 			
 			//懒加载
-			var $datalist = $('#datalist');
-			
-			
+			var $data = $('#data');
+						
 			// 全局配置
 			$.ajaxSetup({
 				url:'../data/goods.json',
@@ -66,15 +65,46 @@
 					console.log(res);
 					
 					var $ul = $('<ul/>');
-					$.each(res.data,function(idx,item){
-						$('<li/>').html( item.content).appendTo($ul);
+					$ul.attr('id','uh');
+					$.each(res,function(idx,item){
+						$('<li/>')
+						.html("<img src='"+item.img+"'><p id='p1'>"
+						+item.content
+						+"</p><p id='p2'><span>"
+						+item.word
+						+"</span>"
+						+item.free+"</p><p id='p3'>"
+						+item.fuhao+item.price+"</p><p id='p4'>"+item.sign+"</p>").appendTo($ul);
 					});
+					
+					$ul.appendTo($data);
 
-					$datalist.append($ul);
+				
 				}
 			});
 			// 页面一加载就请求服务器的数据
 			$.ajax();
+			
+			$(window).on('scroll',function(){
+				var scrollTop = $(window).scrollTop();
+
+				// 懒加载：滚动《快到底部》的时候再加载
+				if(scrollTop >= $(document).height() - $(window).height() - 100){
+					$.ajax();
+				}
+			});
+
+			// 手动触发滚动事件
+			$(window).trigger('scroll');
+			
+			//左边加入一个框
+			$('<h5/>').html('家庭热销榜产品').appendTo($data);
+			$('<ul/>').attr('id','uk').appendTo($data);
+			for(var i =1; i<=8 ; i++){
+				$('<li/>').html('<img src="../img/img/13.png"><p>你们哈哈岛经济发动机纠结啊看<br>￥299</p>').appendTo("#uk");
+			}
+			
+			
 			
 	})
 		</script>
@@ -85,7 +115,8 @@
 			<div id="second"></div>
 			<div id="third"></div>
 			<div id="four"></div>
-			<div id="datalist"></div>
+			<div id="data"></div>
+			<div style="clear: both"></div>
 		</div>
 	</body>
 </html>

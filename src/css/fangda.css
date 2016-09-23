@@ -26,7 +26,7 @@ html,body{margin: 0;padding: 0;}
 #san2{width:66px;height:65px;padding-right:90px;}
 #btn1{width: 324px;height: 34px;border:4px solid red;padding: 0;margin-top:13px;}
 #btn2{width: 90px;height:42px;background-color: red;border:0;padding: 0;font-size: 14px;color:#ffffff;margin-top:13px;}
-#btn3{font-size:14px;color:#333333;background-color:#eeeeee;border:1px solid #dddddd;margin:0;padding:0;height:30px;margin-top:15px;}
+#btn3{font-size:14px;color:#333333;background-color:gold;border:1px solid #dddddd;margin:0;padding:0;height:30px;margin-top:15px;}
 #ul2{list-style: none;font-size: 14px;padding-right:45px;}
 #ul2 li{margin-right:5px;font-weight: 700;}
 .rd span{color:red;}
@@ -40,7 +40,7 @@ html,body{margin: 0;padding: 0;}
 #ul4{list-style: none;margin: 0;padding: 0;padding-right: 145px;}
 #ul4 li{padding-left: 50px;color:#333333;font-size:17px;font-weight: 700;}
 #btn43,#btn44{margin: 0;padding: 0;background:url(../img/bg11.jpg) repeat-x center;}
-#btn44{width:138px;height:38px;}
+#btn44{width:144px;height:38px;}
 #btn43{width:45px;}
 
 /*wu*/
@@ -73,7 +73,7 @@ html,body{margin: 0;padding: 0;}
 #uliu2li5 #ap{color: #f37b15;}
 #btnul1{color: white;background-color:#2ca431 ;border: none;width: 150px;height: 30px;}
 #btnul2{background-color: #f37b15;color: white;border: none;width: 150px;height: 30px;}
-#liu3{border: 1px solid #DDDDDD;font-size: 14px;margin-left: 25px;margin-top: 15px;width: 303px;}
+#liu3{border: 1px solid #DDDDDD;font-size: 14px;margin-left: 25px;margin-top: 15px;width: 312px;}
 #liu3 ul{padding: 0;}
 #dd1{height: 55px;text-align: center;line-height:55px;border-bottom: 1px solid #D0D0D0;}
 #apdd1{color: #0066cc;}

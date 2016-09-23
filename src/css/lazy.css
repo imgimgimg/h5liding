@@ -44,5 +44,26 @@ html,body{margin: 0;padding: 0;}
 #btn43{width:45px;}
 
 /*懒加载*/
-#data ul li{list-style: none;}
-#data ul li{width: 228px;height: 358px;border: 1px solid #dddddd;}
+#data #uh{list-style: none;padding-left:243px;}
+#data #uh li{width: 228px;height: 358px;border: 1px solid #dddddd;float: left;margin: 10px 10px;font-size: 12px;text-align:center;}
+#data #uh li{padding-top: 40px;position: relative;}
+#data #uh li img{height:107px ;}
+#data #uh li #p1{padding-top: 60px;color: #474747;font-weight: 600;}
+#data #uh li #p2{color: red;}
+#data #uh li #p2 span{background-color: #ff6600;width: 14px;height: 14px;color: white;font-size: 15px;}
+#data #uh li #p3{width: 70px;font-size: 16px;font-weight: 700;color: #d32402;}
+#data #uh li #p4{width: 80px;height: 30px;font-size: 14px;font-weight: 700;text-align: center;color:#ffffff;}
+#data #uh li #p4{line-height: 30px;position: absolute;right: 10px;bottom: 10px;margin: 0;background-color: #d32402;}
+
+/*左边框*/
+#data h5{position: absolute;left: 31px;border: 1px solid #dddddd;font-size: 17px;font-weight: 700;background-color: #eeeeee;}
+#data #uk{position: absolute;top: 320px;list-style: none;}
+#data h5,#data #uk li{width: 200px;text-align: center;}
+#data #uk img{width: 50px;height: 70px;}
+#data #uk p{width:120px;font-size: 12px;}
+#data #uk img,#data #uk p{}
+
+
+
+
+

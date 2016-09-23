@@ -22,14 +22,19 @@ html,body{margin: 0;padding: 0;}
 /*si*/
 #si{margin: 0 auto;margin-bottom: 10px;width: 1103px;height: auto;border-top: 2px solid #9e9e9e;border-left: 1px solid #DDDDDD;}
 #si{border-left: 1px solid #DDDDDD;border-bottom: 1px solid #DDDDDD;border-right: 1px solid #DDDDDD;}
-#siul2 li{list-style: none;float: left;font-size: 12px;color: #000000;}
-#si #siul2{background-color:red;}
-#img2{width: 100px;height: 50px;}
+#siul2 li{padding-top: 10px;list-style: none;float: left;font-size: 12px;color: #000000;}
+#siul2{background-color: #f3f3f3;height: 40px;}
 #sili2{padding-right: 300px;padding-left: 100px;}
 #sili3{padding-right: 30px;}
 #sili4{padding: 0 100px;}
 #sili5{padding-right: 100px;}
 
+#img2{width: 100px;height: 40px;}
+#gosp2{color:blue;width:150px;font-size: 14px;padding-left: 5px;font-weight: 600;}
+#gosp3{padding-left: 230px;color: red;}
+#gosp4{color: #0066CC;padding-left: 300px;}
+#to2{background-color: yellowgreen;}
+#gosp5{width: 20px;height: 20px;line-height:20px;text-align: center;color: red;vertical-align: middle;}
 
 
 
