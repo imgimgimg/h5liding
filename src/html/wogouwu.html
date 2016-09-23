@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>我的购物车</title>
+		<link rel="stylesheet" type="text/css" href="../css/wogou.css"/>
+		<script src="../js/mycookie.js"></script>
+		<script src="../js/jquery-1.12.0.js"></script>
+		
+		<script>
+			jQuery(function(){
+				//头部
+			var arr1 = ['登录','免费注册','送50元','电话订购会员登录','送50元','我的风尚',];
+			$('<ul/>').addClass('yi').appendTo('#first')
+
+			$.each(arr1,function(i,cal){
+				$('<li/>').appendTo('.yi').html(cal)
+			})
+			$('.yi').find('li').eq(2).addClass('red');			
+			$('.yi').find('li').eq(4).addClass('red');
+			
+			$('<h4/>').html("<span>触屏版</span><em>电脑版</em>").appendTo("#end3");
+			$('<p/>').html("健康减肥减肥课附近开了房间 附近空地方").appendTo("#end3");
+			$('<p/>').html("健康减肥减地方个风格的风格 发给谁发的gfgfgsg").appendTo("#end3");
+			$('<p/>').html("健康减肥减肥课附近开了房间 附近空地方个风格的风格 发给谁公司发给各个方法").appendTo("#end3");
+			$('<p/>').html("健康减地方个风格的风发谁发的").appendTo("#end3");
+			
+				
+				
+				
+				//获取cookie的信息
+				var $oUl = $('#go');
+				var str = getCookie('arr');
+				var arr = JSON.parse(str);
+				
+				for(var i = 0; i<arr.length;i++)
+				{
+					var $oLi = $('<li/>');
+					$oLi.css({
+						'list-style':'none',					
+					})
+					$oLi.html('<img id="img2" src="'+arr[i].pic+'">'+arr[i].product+"："+arr[i].price).appendTo($oUl);
+				}
+				
+			
+			
+			});
+			
+		</script>
+	</head>
+	<body>
+		<div id="wai">
+			<div id="first"></div>
+			<div id='second'>
+				<img id='img1' src="../img/second1.jpg">
+				<img src="../img/big/gouwu2.png">
+			</div>
+			<div id='san'>
+				<span id='sp1'>我的购物车</span>
+				<img id='img3' src='../img/big/gouwu3.png'>
+				<img id='img4' src='../img/big/gouwu.png'>
+			</div>
+			<div id='si'>
+				<ul id='siul2'>
+					<li id='sili2'>商品</li>
+					<li id='sili3'>风尚价格</li>
+					<li id='sili4'>
+						<select>
+							<option>江西</option>
+							<option>南宁</option>
+							<option>武汉</option>
+						</select>
+					</li>
+					<li id='sili5'>数量</li>
+					<li id='sili6'>金额小计</li>
+				</ul>
+				<div style='clear: both;'></div>
+				<ul id='go'></ul>
+			</div>
+		
+		
+			
+			<div style='clear: both;'></div>
+			<div id="end3"></div>
+		</div>
+	</body>
+</html>

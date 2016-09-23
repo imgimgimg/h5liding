@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
-		<link rel="stylesheet" type="text/css" href="../css/放大镜.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/fangda.css"/>
 		<script src='../js/jquery-1.8.3.min.js'></script>
 		<script src='../js/jquery.elevatezoom.js'></script>
 		<script src="../js/mycookie.js"></script>
@@ -151,17 +151,20 @@
 			var $oPrice = $('#spliu2');
 			//商品的编号
 			var $oSpan = $('#spp');
+			//图片
+			var $oPicture =$('#zoom_03');
 			
 			var obj = {};
 			
 			obj.product = $oSpan.html();
 			obj.price = $oPrice.html();
+			obj.pic = $oPicture.attr("src");
 			
 			//将创建好的商品添加到数组中
 			arr.push(obj);
 			
 			//将数组的内容设置到cookie中
-			addCookie("arr",arr.toSource(),7);
+			addCookie("arr",JSON.stringify(arr),7);
 			
 			alert("添加成功");
 			
@@ -169,7 +172,7 @@
 		
 		var $btngoto = $('#btn3');
 		$btngoto.on('click',function(){
-			location.href = "我的购物车.html";
+			location.href = "wogouwu.html";
 			
 		});
 		
