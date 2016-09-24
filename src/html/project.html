@@ -51,6 +51,17 @@
 				$('<li/>').html(arr3[j]).appendTo('#ul4');
 			})
 			
+			//给标题绑定一个鼠标事件
+			$('#ul4').find('li').on('mouseenter',function(){
+				$(this).css('color','red');
+				
+				$(this).on('mouseleave',function(){
+				$(this).css('color','#333333');
+				
+				})
+			})
+			
+			
 			
 			$('<button/>').attr('id','btn43').html("<img src='../img/third2.png'>").appendTo('#four');
 			$('<button/>').attr('id','btn44').html("点击咨询").appendTo('#four');
