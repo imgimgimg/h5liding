@@ -61,41 +61,56 @@
 				$('#put5').focus(function () { 
 					$('#put5').val(''); 
 				}) 
-				var s =false;
+				var s ;
 				$('#put3').on('blur',function () { 					
 					var str=this.value;
 					console.log("str1:"+str);
 //					var reg = (//);
 //					s=reg.test(str);
 					if (str != num)
-					{ 
+					{ 	s =false;
 						$('#put3').val('请输入手机或邮箱').css('color','red'); 
 					}else{s=true;} 
 				}) 
-				var s1 =false;
+				var s1 ;
 				$('#put4').on('blur',function () { 
 					var str=this.value;
 					console.log(str);
 //					var reg=//;
 //					s1=reg.test(str);
-					if(str != pw){						
+					if(str != pw){	s1 =false;					
 						$('#put4').val('密码不合法').css('color','red');
 					}else{s1=true;}
 				}) 
-				var s2 =false;
+				var s2 ;
 				$('#put5').on('blur',function () { 
 					var str=this.value;
 					var reg=/^\d{4}$/;
 					s2=reg.test(str);
 					if(s2==false){						
 						$('#put5').val('再试试看').css('color','red');
-					}else{s2=true;}
+					}
 				})
+				
+				
+				//获取四位随机数
+				var num;
+				$('#btn5').click(function(){
+					num = parseInt(Math.random()*10000);
+					
+					$('#p52').html(num);
+					
+				});
+				
+				
+				
 				$('#btn7').click(function () {
 //					console.log(s);
 //					console.log(s1);
 					if (s && s1 && s2) 
-					{ alert('登陆成功！'); } 
+					{ alert('登陆成功！'); 
+//						s=false;s1=false;s2=false;
+					}
 					else { alert('登陆失败！'); } 
 				});	
 

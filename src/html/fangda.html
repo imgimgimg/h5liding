@@ -169,10 +169,42 @@
 			//将数组的内容设置到cookie中
 			addCookie("arr",JSON.stringify(arr),7);
 			
-			alert("添加成功");
+			//alert("添加成功");
 			
-		});
-		
+			
+			
+
+			//加入购物车的效果图
+			
+			var $currentLi = $('#btn3');
+			
+			var $img = $('#zoom_03');
+			
+			// 1>复制当前商品图片(用于实现动画效果)
+			var $cloneImg = $img.clone();
+			
+			// 把复制的图片写入页面，并设置样式
+			$cloneImg.css({
+                    position:'absolute',
+                    width:$img.width(),
+                    left:$img.offset().left,
+                    top:$img.offset().top,
+                }).appendTo('#btn3');
+                
+                
+          // 给复制的图片设置动画效果
+                $cloneImg.animate({
+                    left:$currentLi.offset().left,
+                    top:$currentLi.offset().top + $currentLi.outerHeight(),
+                    width:10
+                },function(){
+                    // 4)删除用于动画的图片
+                    $cloneImg.remove();
+
+                     })
+              });
+              
+		//跳转到我的购物车
 		var $btngoto = $('#btn3');
 		$btngoto.on('click',function(){
 			location.href = "wogouwu.html";

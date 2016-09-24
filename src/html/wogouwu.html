@@ -42,21 +42,24 @@
 					+arr[i].pic+"'><span id='gosp2'>"
 					+arr[i].product+"</span><span id='gosp3'>"
 					+arr[i].price+"</span><span id='gosp4'>"
-					+arr[i].jf+"</span><button id='gosp5'>"
+					+arr[i].jf+"</span><button class='gosp5'>"
 					+"&times;"+"</button>").appendTo($oUl);
 	//$oLi.html('<img id="img2" src="'+arr[i].pic+'">'+arr[i].product+arr[i].price).appendTo($oUl);
 				}
-				
+			
+			//返回到详情页购物
 			var $btnto = $('#to2');
 		$btnto.on('click',function(){
 			location.href = "fangda.html";
 			
 		});
 		
-		
-		$('#gosp5').on('click',function(){
-			console.log("jiji");
-			$oLi.remove();
+		//移除购物车中的商品
+		//这里绑定的点击按钮【只能用 class 命名，而不能用 id 取名】
+		$('.gosp5').on('click',function(){
+			console.log($oUl.find('li'));
+			$(this).parent('li').remove();
+			
 		})
 		
 		

@@ -107,7 +107,25 @@
 					}
 				})
 				
+				//获取四位随机数
+				var num;
+				$('#btn4').click(function(){
+					num = parseInt(Math.random()*10000);
+					
+					$('#btn4').html(num);
+					
+				});
 				
+				var num1;
+				$('#btn8').click(function(){
+					num1 = parseInt(Math.random()*10000);
+					
+					$('#sp81').html(num1);
+					
+				});
+				
+				
+				//绑定一个登陆按钮
 				$('#btn10').click(function () {
 					console.log(s);
 					console.log(s1);
